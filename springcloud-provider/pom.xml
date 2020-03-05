@@ -11,11 +11,6 @@
 
     <artifactId>springcloud-provider</artifactId>
 
-    <properties>
-        <maven.complier.source>1.8</maven.complier.source>
-        <maven.complier.target>1.8</maven.complier.target>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>cn.xyf</groupId>
@@ -62,6 +57,17 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- 监控管理 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -69,6 +75,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
             </plugin>
         </plugins>
     </build>

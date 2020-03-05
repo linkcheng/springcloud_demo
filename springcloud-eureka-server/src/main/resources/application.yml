@@ -1,0 +1,20 @@
+server:
+  port: 7000
+
+
+spring:
+  application:
+    name: spring-cloud-eureka
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  # 是否向 eureka 注册中心服务端注册自己
+    fetch-registry: false  # false 表示自己的服务端，不需要注册
+    service-url:  # 监控页面
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: true   # 是否启用自我保护机制
+    eviction-interval-timer-in-ms: 4000

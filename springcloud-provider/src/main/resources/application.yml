@@ -6,7 +6,6 @@ server:
 mybatis:
   type-aliases-package: cn.xyf.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
-# config-location: classpath:mybatis/mybatis-config.xml
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: true
@@ -22,3 +21,19 @@ spring:
     url: jdbc:mysql://localhost:3306/sc_db01?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 12345678
+
+
+# eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: springcloud-provider-8000
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+
+
+# 使用 actuator 时，添加项目相关信息，字段可自定义
+info:
+  app.name: dept-provider
+  company: cn.xyf

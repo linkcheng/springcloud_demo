@@ -8,7 +8,7 @@
         insert into sc_db01.dept (name, db_source) VALUES (#{name}, database())
     </insert>
     <select id="queryById" parameterType="_int" resultType="Dept">
-        select * from sc_db01.dept where id=#{uid}
+        select * from sc_db01.dept where id=#{pid}
     </select>
     <select id="queryAll" resultType="Dept">
         select * from sc_db01.dept

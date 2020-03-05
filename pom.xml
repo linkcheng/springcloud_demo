@@ -11,6 +11,7 @@
         <module>springcloud-api</module>
         <module>springcloud-provider</module>
         <module>springcloud-consumer</module>
+        <module>springcloud-eureka-server</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -28,20 +29,22 @@
         <druid.version>1.1.21</druid.version>
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
 
-        <spring.cloud.version>Greenwich SR5</spring.cloud.version>
-        <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR2</spring.cloud.version>
+        <spring.boot.version>2.2.4.RELEASE</spring.boot.version>
+        <!--https://spring.io/projects/spring-cloud-netflix#learn-->
+        <spring.cloud.netflix.version>2.2.1.RELEASE</spring.cloud.netflix.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
              <!--spring cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
-                <scope>runtime</scope>
+                <!--scope 为 runtime 时，汇报很奇怪的错误-->
+                <scope>import</scope>
             </dependency>
 
             <!--spring boot-->
@@ -50,7 +53,8 @@
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
-                <scope>runtime</scope>
+                <!--scope 为 runtime 时，汇报很奇怪的错误-->
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -81,6 +85,40 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!--netflix-->
+            <!--eureka-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+            </dependency>
+
+            <!--ribbon-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+            </dependency>
+
+            <!--feign-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+            </dependency>
+
 
             <!--数据库-->
             <dependency>
@@ -119,16 +157,16 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.classic.verson}</version>
             </dependency>
-            <dependency>
-                <groupId>org.logback-extensions</groupId>
-                <artifactId>logback-ext-spring</artifactId>
-                <version>0.1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>1.7.12</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.logback-extensions</groupId>-->
+                <!--<artifactId>logback-ext-spring</artifactId>-->
+                <!--<version>0.1.2</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>jcl-over-slf4j</artifactId>-->
+                <!--<version>1.7.12</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
