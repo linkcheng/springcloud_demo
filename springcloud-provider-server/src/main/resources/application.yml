@@ -1,0 +1,39 @@
+server:
+  port: 8000
+
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: cn.xyf.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
+
+# spring 配置
+spring:
+  application:
+    name: springcloud-provider-server
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sc_db01?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 12345678
+
+
+# eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: springcloud-provider-server-8000
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+
+
+# 使用 actuator 时，添加项目相关信息，字段可自定义
+info:
+  app.name: dept-provider-server
+  company: cn.xyf
