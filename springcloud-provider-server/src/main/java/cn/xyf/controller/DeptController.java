@@ -3,6 +3,7 @@ package cn.xyf.controller;
 
 import cn.xyf.pojo.Dept;
 import cn.xyf.service.DeptService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient;
@@ -34,9 +35,21 @@ public class DeptController {
     }
 
 
+    /**
+     * 通过 HystrixCommand 为接口添加熔断机制
+     */
     @GetMapping("/dept/{pid}")
+    @HystrixCommand(fallbackMethod = "defaultWarningDept")
     public Dept getDept(@PathVariable("pid") int pid) {
-        return deptService.queryById(pid);
+        Dept dept = deptService.queryById(pid);
+        if(dept == null) {
+            throw new RuntimeException("Get an error, return the default value");
+        }
+        return dept;
+    }
+
+    private Dept defaultWarningDept(int pid) {
+        return new Dept().setId(pid).setName("unknown").setDbSource("none");
     }
 
     @GetMapping("/depts")

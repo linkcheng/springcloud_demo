@@ -1,4 +1,4 @@
-package cn.xyf.service;
+package cn.xyf.provider.api;
 
 import cn.xyf.pojo.Dept;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@FeignClient("${request.provider-server}")
+@FeignClient(value = "${request.provider-server}", fallbackFactory = ServiceFallbackFactory.class)
 public interface DeptFeignService {
 
     @PostMapping("/dept")

@@ -120,6 +120,12 @@
                 <version>${spring.cloud.netflix.version}</version>
             </dependency>
 
+            <!--hystrix-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+            </dependency>
 
             <!--数据库-->
             <dependency>

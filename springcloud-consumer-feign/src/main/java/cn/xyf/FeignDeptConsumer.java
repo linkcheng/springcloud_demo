@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"cn.xyf.service"})
+@EnableFeignClients(basePackages = {"cn.xyf.provider.api"})
 public class FeignDeptConsumer {
     public static void main(String[] args) {
         SpringApplication.run(FeignDeptConsumer.class, args);

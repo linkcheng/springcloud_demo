@@ -15,6 +15,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:7000/eureka/
 
+# feign hystrix 开启客户端降级
+feign:
+  hystrix:
+    enabled: true
 
+# eureka 上 provider 的实例名称
 request:
   provider-server: SPRINGCLOUD-PROVIDER-SERVER
