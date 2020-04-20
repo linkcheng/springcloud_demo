@@ -23,3 +23,4 @@ feign:
 # eureka 上 provider 的实例名称
 request:
   provider-server: SPRINGCLOUD-PROVIDER-SERVER
+  sidecar-server: SPRINGCLOUD-SIDECAR-SERVER

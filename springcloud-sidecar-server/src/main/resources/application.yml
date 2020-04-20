@@ -1,0 +1,14 @@
+spring.application.name: springcloud-sidecar-server
+server.port: 18848
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: springcloud-sidecar-server-18848
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+
+sidecar:
+  port: 5000
+  health-uri: http://localhost:${sidecar.port}/health/

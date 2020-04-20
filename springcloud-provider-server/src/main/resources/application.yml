@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 18000
 
 
 # mybatis 配置
@@ -27,7 +27,7 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: springcloud-provider-server-8000
+    instance-id: springcloud-provider-server-18000
   client:
     service-url:
       defaultZone: http://localhost:7000/eureka/
