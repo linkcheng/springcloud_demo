@@ -16,17 +16,17 @@ bin/
 out/
 dependency-reduced-pom.xml 
 
-# Eclipse Project Files 
-
+# Eclipse Project Files
 .classpath
 .project
 .settings/ 
 
-# IntelliJ IDEA Files 
-
+# IntelliJ IDEA Files
 *.iml
 *.ipr 
 *.iws 
 *.idea
 *.log
 
+# python env
+venv/
