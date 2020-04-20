@@ -1,5 +1,4 @@
-# Operating System Files 
-
+# Operating System Files
 *.DS_Store 
 Thumbs.db 
 *.sw? 
@@ -29,4 +28,7 @@ dependency-reduced-pom.xml
 *.log
 
 # python env
+*.py[cod]
+db.sqlite3
 venv/
+log/
