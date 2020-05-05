@@ -15,6 +15,9 @@
         <module>springcloud-consumer-feign</module>
         <module>springcloud-sidecar-server</module>
         <module>springcloud-sidecar-api</module>
+        <module>springcloud-stream-producer</module>
+        <module>springcloud-stream-consumer</module>
+        <module>springcloud-common</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -37,10 +40,18 @@
         <spring.boot.version>2.2.4.RELEASE</spring.boot.version>
         <!--https://spring.io/projects/spring-cloud-netflix#learn-->
         <spring.cloud.netflix.version>2.2.1.RELEASE</spring.cloud.netflix.version>
+
+        <spring.cloud.stream.version>3.0.3.RELEASE</spring.cloud.stream.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>cn.xyf</groupId>
+                <artifactId>springcloud-common</artifactId>
+                <version>${version}</version>
+            </dependency>
+
              <!--spring cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -137,6 +148,19 @@
                 <version>${spring.cloud.netflix.version}</version>
             </dependency>
 
+            <!--stream-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+                <version>${spring.cloud.stream.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+                <version>${spring.cloud.stream.version}</version>
+            </dependency>
+
             <!--数据库-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -192,5 +216,42 @@
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>

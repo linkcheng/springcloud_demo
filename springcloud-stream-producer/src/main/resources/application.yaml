@@ -1,0 +1,41 @@
+server.port: 28080
+
+# spring cloud 配置
+spring:
+  application:
+    name: springcloud-stream-provider
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: exchange1
+          binder: rabbit1
+          producer.use-native-encoding: true
+        msg_output:
+          destination: mqtopic1
+          binder: kafka1
+      default-binder: kafka1
+      binders:
+        rabbit1:
+          type: rabbit
+        kafka1:
+          type: kafka
+
+  rabbitmq:
+    host: rabbitmq-server.hsb.cn
+    port: 5672
+    username: admin
+    password: 12345678
+
+  kafka:
+    bootstrap-servers:
+      - kafka-server.hsb.cn:9092 #kafka服务地址
+
+# eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: springcloud-stream-provider-28080
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
