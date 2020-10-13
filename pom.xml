@@ -27,7 +27,7 @@
         <maven.complier.source>1.8</maven.complier.source>
         <maven.complier.target>1.8</maven.complier.target>
 
-        <junit.verson>4.12</junit.verson>
+        <junit.verson>4.13.1</junit.verson>
         <lombok.verson>1.18.12</lombok.verson>
         <logback.classic.verson>1.2.3</logback.classic.verson>
         <fastjson.version>1.2.67</fastjson.version>
