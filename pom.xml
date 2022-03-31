@@ -37,7 +37,7 @@
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
 
         <spring.cloud.version>Hoxton.SR2</spring.cloud.version>
-        <spring.boot.version>2.2.4.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <!--https://spring.io/projects/spring-cloud-netflix#learn-->
         <spring.cloud.netflix.version>2.2.1.RELEASE</spring.cloud.netflix.version>
 
