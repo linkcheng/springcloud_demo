@@ -30,7 +30,7 @@
         <junit.verson>4.12</junit.verson>
         <lombok.verson>1.18.12</lombok.verson>
         <logback.classic.verson>1.2.3</logback.classic.verson>
-        <fastjson.version>1.2.67</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
 
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
         <druid.version>1.1.21</druid.version>
